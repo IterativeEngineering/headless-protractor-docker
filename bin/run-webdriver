@@ -1,0 +1,3 @@
+#!/bin/bash
+
+webdriver-manager update && exec webdriver-manager start
