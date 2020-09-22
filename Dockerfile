@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM ubuntu
 
 MAINTAINER kgasior@iterative.pl
 
@@ -8,25 +8,25 @@ RUN apt-get update && \
   apt-get install -y \
   wget 
 
-RUN wget http://ftp.br.debian.org/debian/pool/main/o/openldap/libldap-common_2.4.49+dfsg-3_all.deb
-RUN dpkg -i libldap-common_2.4.49+dfsg-3_all.deb
-
 RUN apt-get update && \
   apt-get install -y \
     supervisor \
     netcat-traditional \
     xvfb \
     openjdk-8-jre \
-    chromium \
     firefox \
     ffmpeg \
     libcurl4 \
     curl \
     dirmngr \
     gpg-wks-client \
-    libldap-2.4-2 \
+    npm \
     gnupg \
   && \
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+  sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+  apt-get update -y && \
+  apt-get install google-chrome-stable -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
@@ -37,8 +37,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Protractor and initialized Webdriver
-RUN npm install -g protractor@^5.4 && \
-  webdriver-manager update
+RUN npm install -g protractor@^7
 
 # Add a non-privileged user for running Protrator
 RUN adduser --home /project --uid 1000 \

@@ -13,7 +13,7 @@ Installed software
    * [npm](https://www.npmjs.com/) 5.8 Node.js package manager used to install Protractor and any specific node.js modules the tests may need
    * [Selenium webdriver](http://docs.seleniumhq.org/docs/03_webdriver.jsp) 12.0 Browser instrumentation agent used by Protractor to execute the tests
    * [Java 8 SE](http://www.oracle.com/technetwork/java/javase/) 8u162 Needed by Selenium
-   * [Chromium](http://www.chromium.org/Home) 66.0 The OSS core part of Google Chrome browser
+   * [Google Chrome](https://www.google.com/chrome/) Google Chrome browser
    * [Firefox](https://www.mozilla.org/en-US/firefox/desktop/) 59.0 Firefox browser
    * [Protractor](http://angular.github.io/protractor/) 5.3 An end-to-end test framework for web applications
    * [FFmpeg](https://www.ffmpeg.org/) useful for [capturing screencasts](https://www.npmjs.com/package/protractor-video-reporter) of the tests
