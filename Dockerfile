@@ -37,7 +37,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Protractor and initialized Webdriver
-RUN npm install -g protractor@^7
+RUN npm install -g protractor@7.0.0
 
 # Add a non-privileged user for running Protrator
 RUN adduser --home /project --uid 1000 \
