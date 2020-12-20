@@ -39,6 +39,10 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 # Install Protractor and initialized Webdriver
 RUN npm install -g protractor@7.0.0
 
+# Add a non-privileged user for running Protrator
+RUN adduser --home /project --uid 1000 \
+  --disabled-login --disabled-password --gecos node node
+
 # Add main configuration file
 ADD supervisord.conf /etc/supervisor/supervisor.conf
 
